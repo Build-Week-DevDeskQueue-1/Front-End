@@ -10,6 +10,7 @@ import React, { useState, useEffect } from "react";
 //   TicketList is a parent component that is going
 //    to hold all our child Tickets from this file
 const Ticket = () => {
+    //this is our state variable
     const [ticket, setTicket] = useState([]);
     //what properties does ticket contain? :
     //  (all of these properties can be accessed

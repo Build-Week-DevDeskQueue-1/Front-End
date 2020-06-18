@@ -11,6 +11,10 @@ const Ticket = () => {
     //     setBubbleData(generateBubbleData);
     //   }, [colors]);
 
+    //supply ticket id to endpoint
+
+      //ticket routes on backend so far are:
+      // /tickets, tickets/assign, and tickets/status
     return (
         <div className="ticket-class">
             <h3>I am a ticket!</h3>

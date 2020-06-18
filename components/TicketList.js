@@ -15,7 +15,6 @@ const TicketList = () => {
         .catch(err => console.log(err.response));
       }, []);
 
-      //supply ticket id to endpoint
       return (
         <>
         <Ticket />

@@ -51,11 +51,20 @@ const Ticket = props => {
     //  close or reopen ticket - ""
     
     // create ticket is going to involve an axios.post request
-    
+    axiosWithAuth()
+        .post("/tickets") //.get('http://localhost:5000/api/tickets')
+        .then(res => setTickets(res.data))
+        .catch(err => console.log(err.response));
     // assign ticket is going to be an axios.put request
-    
+    axiosWithAuth()
+        .put("/tickets") //.get('http://localhost:5000/api/tickets')
+        .then(res => setTickets(res.data))
+        .catch(err => console.log(err.response));
     // close/reopen ticket is going to be an axios.put request
-    
+    axiosWithAuth()
+        .get("/tickets") //.get('http://localhost:5000/api/tickets')
+        .then(res => setTickets(res.data))
+        .catch(err => console.log(err.response));
     // function allowing us to toggle our dropdown
     //   TODO: add prevState to our state
     const toggle = () => setDropdownOpen(prevState => !prevState);

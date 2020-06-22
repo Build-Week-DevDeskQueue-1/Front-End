@@ -2,6 +2,7 @@
 //  Import - Component - Export (with default)
 import React, { useState, useEffect } from "react";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import axios from 'axios';
 // *** This file creates a Ticket component ***
 //   the properties/state for each individual ticket
 //     are going to be passed up to TicketList
@@ -51,18 +52,18 @@ const Ticket = props => {
     //  close or reopen ticket - ""
     
     // create ticket is going to involve an axios.post request
-    axiosWithAuth()
+    axios
         .post("/tickets") //.get('http://localhost:5000/api/tickets')
         .then(res => setTickets(res.data))
         .catch(err => console.log(err.response));
     // assign ticket is going to be an axios.put request
-    axiosWithAuth()
+    axios
         .put("/tickets") //.get('http://localhost:5000/api/tickets')
         .then(res => setTickets(res.data))
         .catch(err => console.log(err.response));
     // close/reopen ticket is going to be an axios.put request
-    axiosWithAuth()
-        .get("/tickets") //.get('http://localhost:5000/api/tickets')
+    axios
+        .put("/tickets/status") //.get('http://localhost:5000/api/tickets')
         .then(res => setTickets(res.data))
         .catch(err => console.log(err.response));
     // function allowing us to toggle our dropdown

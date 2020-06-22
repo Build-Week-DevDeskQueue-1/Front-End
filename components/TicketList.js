@@ -1,5 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import Ticket from './Ticket';
+import axios from 'axios';
 //this is going to be the component
 //  to display all the tickets
 
@@ -11,7 +12,7 @@ const TicketList = () => {
 
     //fetch data after render
     useEffect(() =>{
-        axiosWithAuth()
+        axios
         .get("/tickets") //.get('http://localhost:5000/api/tickets')
         .then(res => setTickets(res.data))
         .catch(err => console.log(err.response));

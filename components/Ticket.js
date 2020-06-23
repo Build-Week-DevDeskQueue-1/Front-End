@@ -59,16 +59,23 @@ const Ticket = props => {
             .then(res => setTickets(res.data))
             .catch(err => console.log(err.response));
     }
+    // We may not need to define this here.
     // assign ticket is going to be an axios.put request
-    axios
-        .put("/tickets") //.get('http://localhost:5000/api/tickets')
-        .then(res => setTickets(res.data))
-        .catch(err => console.log(err.response));
+    // axios
+    //     .put("/tickets") //.get('http://localhost:5000/api/tickets')
+    //     .then(res => setTickets(res.data))
+    //     .catch(err => console.log(err.response));
+    
     // close/reopen ticket is going to be an axios.put request
-    axios
-        .put("/tickets/status") //.get('http://localhost:5000/api/tickets')
-        .then(res => setTickets(res.data))
-        .catch(err => console.log(err.response));
+    //  attach to dropdown toggle with class="status"
+    //  change status field
+    const changeStatus = e => {
+        e.preventDefault();
+        axios
+            .put("/tickets/status") //.get('http://localhost:5000/api/tickets')
+            .then(res => setTickets(res.data)) //instead of setTickets, create new state element for status?
+            .catch(err => console.log(err.response));
+    }
     // function allowing us to toggle our dropdown
     //   TODO: add prevState to our state
     const toggle = () => setDropdownOpen(prevState => !prevState);
@@ -116,7 +123,7 @@ const Ticket = props => {
                         Status
                         </DropdownToggle>
 
-                    <DropdownMenu>
+                    <DropdownMenu class="status">
                         <DropdownItem>Open</DropdownItem>
                         <DropdownItem>Reopen</DropdownItem>
                         <DropdownItem>Closed</DropdownItem>

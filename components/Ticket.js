@@ -52,10 +52,13 @@ const Ticket = props => {
     //  close or reopen ticket - ""
     
     // create ticket is going to involve an axios.post request
-    axios
-        .post("/tickets") //.get('http://localhost:5000/api/tickets')
-        .then(res => setTickets(res.data))
-        .catch(err => console.log(err.response));
+    const submitTickets = e => {
+        e.preventDefault();
+        axios
+            .post("/tickets") //.get('http://localhost:5000/api/tickets')
+            .then(res => setTickets(res.data))
+            .catch(err => console.log(err.response));
+    }
     // assign ticket is going to be an axios.put request
     axios
         .put("/tickets") //.get('http://localhost:5000/api/tickets')
@@ -74,7 +77,7 @@ const Ticket = props => {
     return (
         <div className="ticket-class">
             <h3>I am a ticket!</h3>
-            <form>
+            <form onSubmit={submitTickets}>
                 {/* display id */}
                 <p>Ticket ID: {props.id}</p>
                 {/* display and add title */}
@@ -118,6 +121,7 @@ const Ticket = props => {
                         <DropdownItem>Reopen</DropdownItem>
                         <DropdownItem>Closed</DropdownItem>
                     </DropdownMenu>
+                <button type='submit'>Submit Ticket</button>
             </form>
         </div>
     )

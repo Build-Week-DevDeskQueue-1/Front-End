@@ -109,7 +109,7 @@ const Ticket = props => {
                 {/* Dropdowns are reactstrap components*/}
                 {/* https://reactstrap.github.io/components/dropdowns/ */}
                 {/* display ticket "category" */}
-                <Dropdown toggle={toggle} />
+                <Dropdown toggle={toggle} value={props.category} />
                     <DropdownToggle caret>
                         Category
                         </DropdownToggle>
@@ -121,7 +121,7 @@ const Ticket = props => {
                         <DropdownItem>Critical</DropdownItem>
                     </DropdownMenu>
                 {/* display ticket "status" */}
-                <Dropdown toggle={toggle} />
+                <Dropdown toggle={toggle} value={props.status} />
                     <DropdownToggle caret>
                         Status
                         </DropdownToggle>

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route , useHistory} from 'react-router-dom';
 import axios from 'axios';
 import Registration from './Registration';
 
@@ -8,6 +8,7 @@ const Login = () => {
     // const [username, setUsername] = useState("");
     // const [password, setPassword] = useState("");
     const [credentials, setCredentials] = useState({ username: '', password: '' });
+    const history = useHistory();
 
     //change handler
     const handleChange = e => {
@@ -23,6 +24,7 @@ const Login = () => {
           .post(`https://dev-desk-backend.herokuapp.com/auth/login`, credentials) ///api/login
           .then(res => {
             localStorage.setItem('token', res.data.payload);
+            history.push('/ticket');
           })
           .catch(err => console.log(err));
         setCredentials({ username: '', password: '' });

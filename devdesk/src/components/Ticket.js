@@ -46,7 +46,7 @@ const Ticket = props => {
 
     //Change Handler
     const handleChange = e => {
-        setName(e.target.value)
+        setTicket(e.target.value)
     }
     //What actions do we want to perform on ticket?
     //    (functions)
@@ -59,7 +59,7 @@ const Ticket = props => {
         e.preventDefault();
         axios
             .post("https://dev-desk-backend.herokuapp.com/tickets") //.get('http://localhost:5000/api/tickets')
-            .then(res => setTickets(res.data))
+            .then(res => setTicket(res.data))
             .catch(err => console.log(err.response));
     }
     // We may not need to define this here.
@@ -75,13 +75,13 @@ const Ticket = props => {
     const changeStatus = e => {
         e.preventDefault();
         axios
-            .put("/tickets/status") //.get('http://localhost:5000/api/tickets')
-            .then(res => setTickets(res.data)) //instead of setTickets, create new state element for status?
+            .put("https://dev-desk-backend.herokuapp.com/tickets/status") //.get('http://localhost:5000/api/tickets')
+            .then(res => setTicket(res.data)) //instead of setTickets, create new state element for status?
             .catch(err => console.log(err.response));
     }
     // function allowing us to toggle our dropdown
     //   TODO: add prevState to our state
-    const toggle = () => setDropdownOpen(prevState => !prevState);
+    const toggle = () => alert("help");//setDropdownOpen(prevState => !prevState);
     // render function is required for React components
     //   it uses JSX, which is HTML-like JavaScript
     return (

@@ -1,5 +1,7 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import axios from 'axios';
+import Registration from './Registration';
 
 
 const Login = () => {
@@ -18,7 +20,7 @@ const Login = () => {
     const logins = e => {
         e.preventDefault();
         axios
-          .get(`https://dev-desk-backend.herokuapp.com/auth/login`, credentials) ///api/login
+          .post(`https://dev-desk-backend.herokuapp.com/auth/login`, credentials) ///api/login
           .then(res => {
             localStorage.setItem('token', res.data.payload);
           })
@@ -46,7 +48,12 @@ const Login = () => {
                     value={credentials.password}/>
             </label>      
 
-            <button type='submit'>Login</button>      
+            <button type='submit'>Login</button> 
+            <button>
+            <Router>
+              <Route path="/register" component={Registration} />
+            </Router>
+            Register</button>     
         </form>
     )
 

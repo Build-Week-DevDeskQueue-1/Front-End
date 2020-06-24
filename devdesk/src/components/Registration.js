@@ -9,9 +9,9 @@ class Registration extends React.Component{
         newUser: {
             username:'',
             password:'',
-         },
-         is_student:false,
-         is_helper:false
+            is_student:false,
+            is_helper:false
+        }
     }
 
     handleChange = e => {
@@ -25,10 +25,10 @@ class Registration extends React.Component{
 
     addUser = e => {
         e.preventDefault();
-        this.setState({
-            is_student:true,
-            is_helper:false
-        });
+        // this.setState({
+        //     is_student:true,
+        //     is_helper:false
+        // });
 
         axios
         .post(`https://dev-desk-backend.herokuapp.com/auth/register`, this.state.newUser)
@@ -49,7 +49,7 @@ class Registration extends React.Component{
 
                     <input type="text" name="password" placeholder="Password" value={this.state.newUser.password} onChange={this.handleChange}/>
 
-                    <button>Add Friend</button>
+                    <button>Register</button>
                     {this.state.isStudent && (
                     <div className="key spinner">
                         <Loader type="Puff" color="#204963" height={60} width={60} />

@@ -1,37 +1,52 @@
 import React,{useState, useEffect} from 'react';
-
+import axios from 'axios';
 
 
 const Login = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    // const [username, setUsername] = useState("");
+    // const [password, setPassword] = useState("");
+    const [credentials, setCredentials] = useState({ username: '', password: '' });
 
-// useEffect(()=>{
-// axios
-//   .post(url, sentData)
-//   .then(res => {
-//     console.log(res.data); // Data was created successfully and logs to console
-//   })
-//   .catch(err => {
-//     console.log(err); // There was an error creating the data and logs to console
-//   });
-// },[] )
+    //change handler
+    const handleChange = e => {
+        setCredentials({
+        ...credentials,
+        [e.target.name]: e.target.value
+        })
+    }
+
+    const logins = e => {
+        e.preventDefault();
+        axios
+          .post(`https://dev-desk-backend.herokuapp.com//api/login`, credentials) ///api/login
+          .then(res => {
+            localStorage.setItem('token', res.data.payload);
+          })
+          .catch(err => console.log(err));
+        setCredentials({ username: '', password: '' });
+      }
 
     return (
-        <form>
+        <form onSubmit={logins}>
             <label>
                 <input
                     type="text"
                     name="username"
-                    value={username}/>
+                    placeholder="Username"
+                    onChange={handleChange}
+                    value={credentials.username}/>
             </label>
             
             <label>
                 <input
                     type="text"
                     name="password"
-                    value={password}/>
-            </label>            
+                    placeholder="Password"
+                    onChange={handleChange}
+                    value={credentials.password}/>
+            </label>      
+
+            <button type='submit'>Login</button>      
         </form>
     )
 

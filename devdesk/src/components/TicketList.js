@@ -18,7 +18,7 @@ const TicketList = () => {
         .catch(err => console.log(err.response));
       }, []);
     
-    //change handler
+    //change handlers
     const handleChange = e => {
       setTickets({[e.target.name]: e.target.value})
     }

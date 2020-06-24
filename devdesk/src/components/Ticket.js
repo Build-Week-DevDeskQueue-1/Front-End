@@ -33,13 +33,16 @@ const Ticket = props => {
     //   an action after a render takes place
     // In this case, it allows us to fetch data
     //   fetching data is an example of a side effect
-    // useEffect(() => {
-    //     const generateBubbleData = colors.map((_, i) => ({
-    //       value: Math.floor(Math.random() * (colors.length * 2)) + 1,
-    //       key: `${i + 1}`
-    //     }));
-    //     setBubbleData(generateBubbleData);
-    //   }, [colors]);
+    useEffect(() => {
+        axios.get(`https://dev-desk-backend.herokuapp.com/tickets`)
+        .then(res => {
+            console.log(res.data.results);
+            setTicket(res.data.results);
+        })
+        .catch(error => {
+            console.log("Error retrieving data");
+        })
+    }, []);
 
     //Change Handler
     const handleChange = e => {
@@ -55,7 +58,7 @@ const Ticket = props => {
     const submitTickets = e => {
         e.preventDefault();
         axios
-            .post("/tickets") //.get('http://localhost:5000/api/tickets')
+            .post("https://dev-desk-backend.herokuapp.com/tickets") //.get('http://localhost:5000/api/tickets')
             .then(res => setTickets(res.data))
             .catch(err => console.log(err.response));
     }

@@ -13,11 +13,15 @@ const TicketList = () => {
     //fetch data after render
     useEffect(() =>{
         axios
-        .get("/tickets") //.get('http://localhost:5000/api/tickets')
+        .get("https://dev-desk-backend.herokuapp.com/tickets") //.get('http://localhost:5000/api/tickets')
         .then(res => setTickets(res.data))
         .catch(err => console.log(err.response));
       }, []);
-
+    
+    //change handler
+    const handleChange = e => {
+      setTickets({[e.target.name]: e.target.value})
+    }
       //don't forget: supply ticket id to endpoint
 
       //ticket routes on backend so far are:
@@ -26,9 +30,8 @@ const TicketList = () => {
       
       return (
         <>
+        {/*map over all tickets*/}
         <Ticket />
-          {/* <ColorList colors={colorList} updateColors={setColorList} />
-          <Bubbles colors={colorList} /> */}
         </>
       );
 }

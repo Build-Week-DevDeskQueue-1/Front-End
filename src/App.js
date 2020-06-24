@@ -1,14 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import axios from 'axios';
+import Login from './Login';
 
 function App() {
 
   return (
     <div className="App">
       <h1>DevDesk Ticketing System</h1>
+        <Router>
+          <Route exact path="/" component={Login} />
+        </Router>
+        
         {/*
          
          

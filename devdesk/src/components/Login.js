@@ -18,7 +18,7 @@ const Login = () => {
     const logins = e => {
         e.preventDefault();
         axios
-          .get(`https://dev-desk-backend.herokuapp.com//api/login`, credentials) ///api/login
+          .get(`https://dev-desk-backend.herokuapp.com/auth/login`, credentials) ///api/login
           .then(res => {
             localStorage.setItem('token', res.data.payload);
           })

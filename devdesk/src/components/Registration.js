@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
-import Loader from 'react-loader-spinner';
+//import Loader from 'react-loader-spinner';
 
 
 class Registration extends React.Component{
@@ -49,8 +48,29 @@ class Registration extends React.Component{
 
                     <input type="text" name="password" placeholder="Password" value={this.state.newUser.password} onChange={this.handleChange}/>
 
-                    <button>Register</button>
-                    {this.state.isStudent && (
+                    <label>
+                        Are You a Student?
+                        {/* TODO: Toggle true and false*/}
+                        <input
+                        type="checkbox"
+                        name="isStudent"
+                        onChange={this.handleChange}
+                        value={this.state.newUser.is_student}/>
+                    </label>
+
+                    <label>
+                        Are You a Helper?
+                        {/* TODO: Toggle true and false*/}
+                        <input
+                        type="checkbox"
+                        name="isHelper"
+                        onChange={this.handleChange}
+                        value={this.state.newUser.is_helper}/>
+                    </label>
+
+                    <button type='submit'>Register</button>
+                    
+                    {/* {this.state.isStudent && (
                     <div className="key spinner">
                         <Loader type="Puff" color="#204963" height={60} width={60} />
                         <p>Loading...</p>
@@ -62,7 +82,7 @@ class Registration extends React.Component{
                             <Loader type="Puff" color="#204963" height={60} width={60} />
                             <p>Loading...</p>
                         </div>
-                     )}
+                     )} */}
 
                 </form>
             </div>

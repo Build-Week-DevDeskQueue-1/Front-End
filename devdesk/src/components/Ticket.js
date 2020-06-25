@@ -136,10 +136,14 @@ const Ticket = props => {
                 {/* Dropdowns are reactstrap components*/}
                 {/* https://reactstrap.github.io/components/dropdowns/ */}
                 <DropdownButton id="dropdown1" title="Category">
-                    <Dropdown.Item as="button">Low</Dropdown.Item>
-                    <Dropdown.Item as="button">Medium</Dropdown.Item>
-                    <Dropdown.Item as="button">High</Dropdown.Item>
-                    <Dropdown.Item as="button">Critical</Dropdown.Item>
+                    <Dropdown.Item as="button" onChange={handleChange}
+                        value={props.category}>Low</Dropdown.Item>
+                    <Dropdown.Item as="button" onChange={handleChange}
+                        value={props.category}>Medium</Dropdown.Item>
+                    <Dropdown.Item as="button" onChange={handleChange}
+                        value={props.category}>High</Dropdown.Item>
+                    <Dropdown.Item as="button" onChange={handleChange}
+                        value={props.category}>Critical</Dropdown.Item>
                 </DropdownButton>
                
                 <Dropdown id="dropdown2">
@@ -147,9 +151,12 @@ const Ticket = props => {
                     Status
                 </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item as="button">Open</Dropdown.Item>
-                        <Dropdown.Item as="button">Reopen</Dropdown.Item>
-                        <Dropdown.Item as="button">Closed</Dropdown.Item>
+                        <Dropdown.Item as="button" onChange={handleChange}
+                        value={props.status}>Open</Dropdown.Item>
+                        <Dropdown.Item as="button" onChange={handleChange}
+                        value={props.status}>Reopen</Dropdown.Item>
+                        <Dropdown.Item as="button" onChange={handleChange}
+                        value={props.status}>Closed</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
                 <button onClick={ refreshPage }>

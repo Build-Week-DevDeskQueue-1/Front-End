@@ -66,6 +66,7 @@ const Ticket = props => {
             .post("https://dev-desk-backend.herokuapp.com/tickets") //.get('http://localhost:5000/api/tickets')
             .then(res => setTicket(res.data))
             .catch(err => console.log(err.response));
+        
     }
     // We may not need to define this here.
     // assign ticket is going to be an axios.put request
@@ -179,7 +180,10 @@ const Ticket = props => {
                     <Link to="/logout">Logout</Link>
                 </Router>
                 </button>
-                <button type='submit'>Submit Ticket</button>
+                <button type='submit' onClick={ refreshPage }><Router>
+                    {/* <Route path="/logout" component={Logout} /> */}
+                    <Link to="/thankyou">Submit Ticket</Link>
+                </Router></button>
                 </div>
             </form>
         </div>

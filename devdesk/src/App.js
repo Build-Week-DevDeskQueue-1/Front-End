@@ -8,6 +8,7 @@ import Logout from './components/Logout';
 import Registration from "./components/Registration";
 import PrivateRoute from "./components/PrivateRoute";
 import Ticket from "./components/Ticket";
+import ThankYou from "./components/ThankYou";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route path="/register" component={Registration} />
           <Route path="/logout" component={Logout} />
+          <Route path="/thankyou" component={ThankYou} />
           <PrivateRoute path="/ticket" component={Ticket}
           render={props=>(
             <Ticket {...props} />

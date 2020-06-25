@@ -10,6 +10,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Ticket from "./components/Ticket";
 import TicketList from "./components/TicketList";
 import ThankYou from "./components/ThankYou";
+import {TicketContext} from './contexts/TicketContext';
 
 function App() {
 

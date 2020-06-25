@@ -1,9 +1,10 @@
 //To create a React component, we use ICE:
 //  Import - Component - Export (with default)
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 // import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'react-bootstrap';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import {TicketContext} from '../contexts/TicketContext';
 import axios from 'axios';
 // *** This file creates a Ticket component ***
 //   the properties/state for each individual ticket

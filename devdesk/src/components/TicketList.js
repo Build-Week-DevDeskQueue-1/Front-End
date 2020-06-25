@@ -1,5 +1,6 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect, useContext }  from 'react';
 import Ticket from './Ticket';
+import {TicketContext} from '../contexts/TicketContext';
 import axios from 'axios';
 //this is going to be the component
 //  to display all the tickets
@@ -24,10 +25,11 @@ const TicketList = () => {
           .catch(err => console.log(err.response));
       }, []);
     
-    //change handlers
-    const handleChange = e => {
-      setTickets({[e.target.name]: e.target.value})
-    }
+    //change handlers - may not be needed here
+    // const handleChange = e => {
+    //   setTickets({[e.target.name]: e.target.value})
+    // }
+    
       //don't forget: supply ticket id to endpoint
 
       //ticket routes on backend so far are:
@@ -41,8 +43,10 @@ const TicketList = () => {
     return (
         <>
         {/*map over all tickets*/}
-        {/* <Ticket /> */}
-        <p>{tickets}</p>
+        <p>Make Sure You're Logged in First!</p>
+        {tickets.map(ticket => (
+          <Ticket {...ticket} />
+        ))}
         </>
     );
 }

@@ -3,6 +3,7 @@ import './App.css';
 import './css/index.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Helmet} from "react-helmet";
+//TODO: Relocate these to a Routes.js file
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Registration from "./components/Registration";
@@ -10,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Ticket from "./components/Ticket";
 import TicketList from "./components/TicketList";
 import ThankYou from "./components/ThankYou";
+//Context API
 import {TicketContext} from './contexts/TicketContext';
 
 function App() {

@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 //import Loader from 'react-loader-spinner';
 
-
 class Registration extends React.Component{
     state = {
         newUser: {
@@ -30,7 +29,8 @@ class Registration extends React.Component{
         .then(res => {
             console.log(res.data);
             //TODO: this will not be friends, but something else
-            this.setState({friends:[...res.data, res.data.payload]});
+            //this.setState({friends:[...res.data, res.data.payload]});
+            this.setState({...res.data});
         })
         .catch(err => console.log(err));
 

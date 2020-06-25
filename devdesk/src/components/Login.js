@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {BrowserRouter as Router, Route , useHistory} from 'react-router-dom';
 import axios from 'axios';
 import Registration from './Registration';
+import Logout from './Logout';
 
 
 const Login = () => {
@@ -51,6 +52,11 @@ const Login = () => {
             </label>      
 
             <button type='submit'>Login</button> 
+            <button>
+            <Router>
+              <Route path="/logout" component={Logout} />
+            </Router>
+              Logout</button>
             <button>
             <Router>
               <Route path="/register" component={Registration} />

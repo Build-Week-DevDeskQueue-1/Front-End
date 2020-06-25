@@ -61,7 +61,6 @@ const Login = () => {
               </button> 
               <button onClick={ refreshPage }>
               <Router>
-                {/* <Route path="/register" component={Registration} /> */}
                 <Link to="/register">Register</Link>
               </Router>
               </button>  
@@ -72,9 +71,3 @@ const Login = () => {
 }
 
 export default Login;
-// Login.js....
-//          import react
-//          , {useState, useEffect 
-//          }.....state will be username, password (you can do this as two separate fields or a single field
-         
-//             )......the axios call....in the JSX, you will map over username and password somewhere

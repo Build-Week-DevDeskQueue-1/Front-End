@@ -135,36 +135,13 @@ const Ticket = props => {
                 <div className="buttons">
                 {/* Dropdowns are reactstrap components*/}
                 {/* https://reactstrap.github.io/components/dropdowns/ */}
-                {/* display ticket "category" */}
-                {/* <Dropdown isOpen={dropdownOpen} toggle={toggle} value={props.category}>
-                    <DropdownToggle caret>
-                        Category
-                        </DropdownToggle>
-                    <DropdownMenu>
-                        <DropdownItem header>Category</DropdownItem>
-                        <DropdownItem>Low</DropdownItem>
-                        <DropdownItem>Medium</DropdownItem>
-                        <DropdownItem>High</DropdownItem>
-                        <DropdownItem>Critical</DropdownItem>
-                    </DropdownMenu>
-                </Dropdown> */}
                 <DropdownButton id="dropdown1" title="Category">
                     <Dropdown.Item as="button">Low</Dropdown.Item>
                     <Dropdown.Item as="button">Medium</Dropdown.Item>
                     <Dropdown.Item as="button">High</Dropdown.Item>
                     <Dropdown.Item as="button">Critical</Dropdown.Item>
                 </DropdownButton>
-                {/* display ticket "status" */}
-                {/* <Dropdown toggle={toggle} value={props.status}>
-                    <DropdownToggle caret>
-                        Status
-                        </DropdownToggle>
-                    <DropdownMenu class="status">
-                        <DropdownItem>Open</DropdownItem>
-                        <DropdownItem>Reopen</DropdownItem>
-                        <DropdownItem>Closed</DropdownItem>
-                    </DropdownMenu>
-                </Dropdown> */}
+               
                 <Dropdown id="dropdown2">
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                     Status
@@ -177,12 +154,10 @@ const Ticket = props => {
                 </Dropdown>
                 <button onClick={ refreshPage }>
                 <Router>
-                    {/* <Route path="/logout" component={Logout} /> */}
                     <Link to="/logout">Logout</Link>
                 </Router>
                 </button>
                 <button type='submit' onClick={ refreshPage }><Router>
-                    {/* <Route path="/thankyou" component={ThankYou} /> */}
                     <Link to="/thankyou">Submit Ticket</Link>
                 </Router></button>
                 </div>

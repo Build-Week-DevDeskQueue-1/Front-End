@@ -1,6 +1,6 @@
 import React from 'react';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 import axios from 'axios';
-//import Loader from 'react-loader-spinner';
 
 class Registration extends React.Component{
     //this is the initial state
@@ -44,6 +44,11 @@ class Registration extends React.Component{
         // - disallow both to be checked
     };
 
+    //function to refresh page
+    refreshPage(){ 
+        window.location.reload(); 
+    }
+
 
     render(){
         return(
@@ -77,7 +82,11 @@ class Registration extends React.Component{
                         value={this.state.newUser.is_helper}/>
                     </label>
 
-                    <button type='submit'>Register</button>
+                    <button type='submit' onclick="refreshPage">
+                        <Router>
+                            <Link to="/ticket">Register</Link>
+                        </Router>
+                    </button>
                     
                 </form>
             </div>

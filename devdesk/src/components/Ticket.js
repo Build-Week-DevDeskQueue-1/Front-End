@@ -98,33 +98,39 @@ const Ticket = props => {
     return (
         <div className="ticket-class">
             <h3>I am a ticket!</h3>
-            <form onSubmit={submitTickets}>
+            <form className="ticketForm" onSubmit={submitTickets}>
                 {/* display id */}
                 <p>Ticket ID: {props.id}</p>
                 {/* display and add title */}
-                <label>Title
+                <div className="textblock">
+                <label>Title</label>
                     <input type="text" 
                     value={props.title} 
                     onChange={handleChange}
                     placeholder="It's Not Working!!"    
                     />
-                </label>
+                </div>
                 {/* display description */}
-                <label>Description
-                    <input type="textarea" 
+                <div className="textblock">
+                <label>Description</label>
+                    <textarea
+                    cols="50" 
                     value={props.description} 
                     onChange={handleChange}
                     placeholder="My PC Exploded"   
                     />
-                </label>
+                </div>
                 {/* display what user has "tried" */}
-                <label>What Has Been Tried ?
-                <input type="textarea" 
+                <div className="textblock">
+                <label>What Has Been Tried ?</label>
+                <textarea
+                cols="50"
                 value={props.tried} 
                 onChange={handleChange} 
                 placeholder="I did no troubleshooting"   
-                />
-                </label>
+                />                
+                </div>
+                <div className="buttons">
                 {/* Dropdowns are reactstrap components*/}
                 {/* https://reactstrap.github.io/components/dropdowns/ */}
                 {/* display ticket "category" */}
@@ -174,6 +180,7 @@ const Ticket = props => {
                 </Router>
                 </button>
                 <button type='submit'>Submit Ticket</button>
+                </div>
             </form>
         </div>
     )

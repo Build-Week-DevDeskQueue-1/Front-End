@@ -61,3 +61,29 @@ body {
 .registerForm button {
   margin: 2px auto;
 }
+.ticketForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2%;
+}
+.ticketForm .textblock {
+  display: flex;
+  flex-direction: column;
+}
+.ticketForm .textblock label {
+  padding: 1%;
+}
+.ticketForm .textblock input,
+.ticketForm .textblock textarea {
+  margin: 2px auto;
+  width: 20%;
+}
+.ticketForm .buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 2px auto;
+}
+.ticketForm .buttons button {
+  margin: 2px auto;
+}

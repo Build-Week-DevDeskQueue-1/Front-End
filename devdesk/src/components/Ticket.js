@@ -99,12 +99,14 @@ const Ticket = props => {
                 {/* display description */}
                 <input type="textarea" 
                 value={props.description} 
-                onChange={handleChange}    
+                onChange={handleChange}
+                placeholder="My PC Exploded"   
                 />
                 {/* display what user has "tried" */}
                 <input type="textarea" 
                 value={props.tried} 
-                onChange={handleChange}    
+                onChange={handleChange} 
+                placeholder="I did no troubleshooting"   
                 />
                 {/* Dropdowns are reactstrap components*/}
                 {/* https://reactstrap.github.io/components/dropdowns/ */}

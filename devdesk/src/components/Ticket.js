@@ -182,7 +182,7 @@ const Ticket = props => {
                 </Router>
                 </button>
                 <button type='submit' onClick={ refreshPage }><Router>
-                    {/* <Route path="/logout" component={Logout} /> */}
+                    {/* <Route path="/thankyou" component={ThankYou} /> */}
                     <Link to="/thankyou">Submit Ticket</Link>
                 </Router></button>
                 </div>

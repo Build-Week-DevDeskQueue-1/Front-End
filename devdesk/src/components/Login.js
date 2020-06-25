@@ -54,7 +54,11 @@ const Login = () => {
             </label> 
             </div>     
             <div className="buttons">
-              <button type='submit'>Login</button> 
+              <button type='submit' onClick={ refreshPage }>
+                <Router>
+                      <Link to="/ticket">Login</Link>
+                </Router>
+              </button> 
               <button onClick={ refreshPage }>
               <Router>
                 {/* <Route path="/register" component={Registration} /> */}

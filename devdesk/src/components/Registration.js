@@ -3,6 +3,7 @@ import axios from 'axios';
 //import Loader from 'react-loader-spinner';
 
 class Registration extends React.Component{
+    //this is the initial state
     state = {
         newUser: {
             username:'',

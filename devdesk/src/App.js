@@ -8,6 +8,7 @@ import Logout from './components/Logout';
 import Registration from "./components/Registration";
 import PrivateRoute from "./components/PrivateRoute";
 import Ticket from "./components/Ticket";
+import TicketList from "./components/TicketList";
 import ThankYou from "./components/ThankYou";
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
           <Route path="/logout" component={Logout} />
           <Route path="/thankyou" component={ThankYou} />
           <PrivateRoute path="/ticket" component={Ticket}
+          render={props=>(
+            <Ticket {...props} />
+          )} />
+          <PrivateRoute path="/ticketlist" component={TicketList}
           render={props=>(
             <Ticket {...props} />
           )} />

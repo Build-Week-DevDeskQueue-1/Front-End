@@ -1,6 +1,7 @@
 //To create a React component, we use ICE:
 //  Import - Component - Export (with default)
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import axios from 'axios';
 // *** This file creates a Ticket component ***
@@ -55,6 +56,8 @@ const Ticket = props => {
     //  close or reopen ticket - ""
     
     // create ticket is going to involve an axios.post request
+    //TODO: When submitTickets is called, user is redirected to Ticket List
+    //  or to a page or message that says "Your Ticket Has Been Submitted!"
     const submitTickets = e => {
         e.preventDefault();
         axios
@@ -79,6 +82,12 @@ const Ticket = props => {
             .then(res => setTicket(res.data)) //instead of setTickets, create new state element for status?
             .catch(err => console.log(err.response));
     }
+
+    //function to refresh page
+    function refreshPage(){ 
+        window.location.reload(); 
+    }
+
     // function allowing us to toggle our dropdown
     //   TODO: add prevState to our state
     const toggle = () => alert("help");//setDropdownOpen(prevState => !prevState);
@@ -133,6 +142,12 @@ const Ticket = props => {
                         <DropdownItem>Reopen</DropdownItem>
                         <DropdownItem>Closed</DropdownItem>
                     </DropdownMenu>
+                <button onClick={ refreshPage }>
+                <Router>
+                    {/* <Route path="/logout" component={Logout} /> */}
+                    <Link to="/logout">Logout</Link>
+                </Router>
+                </button>
                 <button type='submit'>Submit Ticket</button>
             </form>
         </div>

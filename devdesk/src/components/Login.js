@@ -1,9 +1,6 @@
 import React,{useState} from 'react';
-import {BrowserRouter as Router, Route , useHistory} from 'react-router-dom';
+import {BrowserRouter as Router, Link, useHistory} from 'react-router-dom';
 import axios from 'axios';
-import Registration from './Registration';
-import Logout from './Logout';
-
 
 const Login = () => {
     // const [username, setUsername] = useState("");
@@ -30,6 +27,11 @@ const Login = () => {
           .catch(err => console.log(err));
         setCredentials({ username: '', password: '' });
       }
+    
+    //function to refresh page
+    function refreshPage(){ 
+      window.location.reload(); 
+    }
 
     return (
         <form className="loginForm" onSubmit={logins}>
@@ -53,16 +55,12 @@ const Login = () => {
             </div>     
             <div className="buttons">
               <button type='submit'>Login</button> 
-              <button>
+              <button onClick={ refreshPage }>
               <Router>
-                <Route path="/logout" component={Logout} />
+                {/* <Route path="/register" component={Registration} /> */}
+                <Link to="/register">Register</Link>
               </Router>
-                Logout</button>
-              <button>
-              <Router>
-                <Route path="/register" component={Registration} />
-              </Router>
-              Register</button>  
+              </button>  
             </div>   
         </form>
     )

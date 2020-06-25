@@ -2,7 +2,8 @@
 //  Import - Component - Export (with default)
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+// import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'react-bootstrap';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 import axios from 'axios';
 // *** This file creates a Ticket component ***
 //   the properties/state for each individual ticket
@@ -16,6 +17,7 @@ import axios from 'axios';
 const Ticket = props => {
     //this is our state variable
     const [ticket, setTicket] = useState([]);
+    //const [dropdownOpen, setDropdownOpen] = useState(false);
     //what properties does ticket contain? :
     //  (all of these properties can be accessed
     //   from one state variable called ticket)
@@ -90,7 +92,7 @@ const Ticket = props => {
 
     // function allowing us to toggle our dropdown
     //   TODO: add prevState to our state
-    const toggle = () => alert("help");//setDropdownOpen(prevState => !prevState);
+    //const toggle = () => setDropdownOpen(prevState => !prevState);//setDropdownOpen(prevState => !prevState);
     // render function is required for React components
     //   it uses JSX, which is HTML-like JavaScript
     return (
@@ -100,48 +102,71 @@ const Ticket = props => {
                 {/* display id */}
                 <p>Ticket ID: {props.id}</p>
                 {/* display and add title */}
-                <input type="text" 
-                value={props.title} 
-                onChange={handleChange}
-                placeholder="It's Not Working!!"    
-                />
+                <label>Title
+                    <input type="text" 
+                    value={props.title} 
+                    onChange={handleChange}
+                    placeholder="It's Not Working!!"    
+                    />
+                </label>
                 {/* display description */}
-                <input type="textarea" 
-                value={props.description} 
-                onChange={handleChange}
-                placeholder="My PC Exploded"   
-                />
+                <label>Description
+                    <input type="textarea" 
+                    value={props.description} 
+                    onChange={handleChange}
+                    placeholder="My PC Exploded"   
+                    />
+                </label>
                 {/* display what user has "tried" */}
+                <label>What Has Been Tried ?
                 <input type="textarea" 
                 value={props.tried} 
                 onChange={handleChange} 
                 placeholder="I did no troubleshooting"   
                 />
+                </label>
                 {/* Dropdowns are reactstrap components*/}
                 {/* https://reactstrap.github.io/components/dropdowns/ */}
                 {/* display ticket "category" */}
-                <Dropdown toggle={toggle} value={props.category} />
+                {/* <Dropdown isOpen={dropdownOpen} toggle={toggle} value={props.category}>
                     <DropdownToggle caret>
                         Category
                         </DropdownToggle>
-
                     <DropdownMenu>
+                        <DropdownItem header>Category</DropdownItem>
                         <DropdownItem>Low</DropdownItem>
                         <DropdownItem>Medium</DropdownItem>
                         <DropdownItem>High</DropdownItem>
                         <DropdownItem>Critical</DropdownItem>
                     </DropdownMenu>
+                </Dropdown> */}
+                <DropdownButton id="dropdown1" title="Category">
+                    <Dropdown.Item as="button">Low</Dropdown.Item>
+                    <Dropdown.Item as="button">Medium</Dropdown.Item>
+                    <Dropdown.Item as="button">High</Dropdown.Item>
+                    <Dropdown.Item as="button">Critical</Dropdown.Item>
+                </DropdownButton>
                 {/* display ticket "status" */}
-                <Dropdown toggle={toggle} value={props.status} />
+                {/* <Dropdown toggle={toggle} value={props.status}>
                     <DropdownToggle caret>
                         Status
                         </DropdownToggle>
-
                     <DropdownMenu class="status">
                         <DropdownItem>Open</DropdownItem>
                         <DropdownItem>Reopen</DropdownItem>
                         <DropdownItem>Closed</DropdownItem>
                     </DropdownMenu>
+                </Dropdown> */}
+                <Dropdown id="dropdown2">
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Status
+                </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item as="button">Open</Dropdown.Item>
+                        <Dropdown.Item as="button">Reopen</Dropdown.Item>
+                        <Dropdown.Item as="button">Closed</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
                 <button onClick={ refreshPage }>
                 <Router>
                     {/* <Route path="/logout" component={Logout} /> */}

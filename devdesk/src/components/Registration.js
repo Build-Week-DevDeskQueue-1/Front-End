@@ -78,20 +78,6 @@ class Registration extends React.Component{
 
                     <button type='submit'>Register</button>
                     
-                    {/* {this.state.isStudent && (
-                    <div className="key spinner">
-                        <Loader type="Puff" color="#204963" height={60} width={60} />
-                        <p>Loading...</p>
-                    </div>
-                     )}
-
-                     {this.state.isHelper && (
-                        <div className="key spinner">
-                            <Loader type="Puff" color="#204963" height={60} width={60} />
-                            <p>Loading...</p>
-                        </div>
-                     )} */}
-
                 </form>
             </div>
         )

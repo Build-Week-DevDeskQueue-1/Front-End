@@ -82,7 +82,7 @@ class Registration extends React.Component{
                         value={this.state.newUser.is_helper}/>
                     </label>
 
-                    <button type="submit" onclick={this.refreshPage}>
+                    <button type="submit" onClick={this.refreshPage}>
                         <Router>
                             <Link to="/ticket">Register</Link>
                         </Router>

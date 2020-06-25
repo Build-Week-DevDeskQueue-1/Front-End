@@ -43,11 +43,14 @@ class Registration extends React.Component{
     render(){
         return(
             <div>
-                <form onSubmit={this.addUser}>
-                    <input type="text" name="username" placeholder="Username" value={this.state.newUser.username} onChange={this.handleChange}/>
-
+                <form className="registerForm" onSubmit={this.addUser}>
+                    <label>
+                        <input type="text" name="username" placeholder="Username" value={this.state.newUser.username} onChange={this.handleChange}/>
+                    </label>
+                    <label>
                     <input type="text" name="password" placeholder="Password" value={this.state.newUser.password} onChange={this.handleChange}/>
-
+                    </label>
+                    
                     <label>
                         Are You a Student?
                         {/* TODO: Toggle true and false*/}

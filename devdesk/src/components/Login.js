@@ -32,7 +32,8 @@ const Login = () => {
       }
 
     return (
-        <form onSubmit={logins}>
+        <form className="loginForm" onSubmit={logins}>
+            <div className="labels">
             <label>
                 <input
                     type="text"
@@ -40,8 +41,7 @@ const Login = () => {
                     placeholder="Username"
                     onChange={handleChange}
                     value={credentials.username}/>
-            </label>
-            
+            </label>            
             <label>
                 <input
                     type="text"
@@ -49,19 +49,21 @@ const Login = () => {
                     placeholder="Password"
                     onChange={handleChange}
                     value={credentials.password}/>
-            </label>      
-
-            <button type='submit'>Login</button> 
-            <button>
-            <Router>
-              <Route path="/logout" component={Logout} />
-            </Router>
-              Logout</button>
-            <button>
-            <Router>
-              <Route path="/register" component={Registration} />
-            </Router>
-            Register</button>     
+            </label> 
+            </div>     
+            <div className="buttons">
+              <button type='submit'>Login</button> 
+              <button>
+              <Router>
+                <Route path="/logout" component={Logout} />
+              </Router>
+                Logout</button>
+              <button>
+              <Router>
+                <Route path="/register" component={Registration} />
+              </Router>
+              Register</button>  
+            </div>   
         </form>
     )
 

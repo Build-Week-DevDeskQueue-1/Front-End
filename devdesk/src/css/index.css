@@ -1,4 +1,10 @@
 /* BEGIN Custom CSS */
+body {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  color: #333;
+  font-size: 14px;
+  scroll-snap-type: y mandatory;
+}
 .App button {
   width: 200px;
   height: 60px;
@@ -21,4 +27,37 @@
 }
 .App button:hover {
   background-color: #ec3944;
+}
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2%;
+}
+.loginForm .labels {
+  display: flex;
+  flex-direction: column;
+}
+.loginForm .labels label {
+  padding: 1%;
+}
+.loginForm .buttons {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+}
+.loginForm .buttons button {
+  margin: 2px auto;
+}
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2%;
+}
+.registerForm label {
+  padding: 1%;
+}
+.registerForm button {
+  margin: 2px auto;
 }

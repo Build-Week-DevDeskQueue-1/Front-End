@@ -1,5 +1,14 @@
 /* BEGIN Custom CSS */
+body {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    color: #333;
+    font-size: 14px;
+    scroll-snap-type: y mandatory;
+
+}
+
 .App {
+
     button {
         width: 200px;
         height: 60px;
@@ -22,5 +31,46 @@
     
     button:hover{
         background-color: #ec3944;
+    }
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2%;
+
+    .labels {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            padding: 1%;
+        }
+
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        padding: 1%;
+
+        button {
+            margin: 2px auto;
+        }
+
+    }
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2%;
+    label {
+        padding: 1%;
+    }
+    button {
+        margin: 2px auto;
     }
 }

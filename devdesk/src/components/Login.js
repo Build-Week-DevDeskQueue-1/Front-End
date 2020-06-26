@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import {BrowserRouter as Router, Link, useHistory} from 'react-router-dom';
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 const Login = () => {
     // const [username, setUsername] = useState("");
     // const [password, setPassword] = useState("");

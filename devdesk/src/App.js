@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Ticket from "./components/Ticket";
 import TicketList from "./components/TicketList";
 import ThankYou from "./components/ThankYou";
+import axios from 'axios';
 //Context API
 import {TicketContext} from './contexts/TicketContext';
 
@@ -24,7 +25,7 @@ function App() {
         <title>DevDesk Ticketing System</title>
       </Helmet>
       {/* LOGO */}
-      <a href='https://lambdaschool.com/' target="_blank" rel="noopener noreferrer" class="logo"><img src="https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5dcda59e63bb6ae5c9282801_small-red-logo.png" alt="Lambda school logo" width="250px" /></a>
+      <a href='https://lambdaschool.com/' target="_blank" rel="noopener noreferrer" className="logo"><img src="https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5dcda59e63bb6ae5c9282801_small-red-logo.png" alt="Lambda school logo" width="250px" /></a>
       <h1>DevDesk Ticketing System</h1>
         <Router>
           <Route exact path="/" component={Login} />

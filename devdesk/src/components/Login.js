@@ -31,9 +31,9 @@ const Login = () => {
       }
     
     //function to refresh page
-    function refreshPage(){ 
-      window.location.reload(); 
-    }
+    // function refreshPage(){ 
+    //   window.location.reload(); 
+    // }
 
     return (
         <form className="loginForm" onSubmit={logins}>

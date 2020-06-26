@@ -9,22 +9,18 @@ import axios from 'axios';
 //  to this page
 const TicketList = () => {
     //state variable to hold all tickets
-    const[tickets,setTickets]= useState();
+    const[tickets,setTickets]= useState([]);
 
     //fetch data after render
     useEffect(() =>{
-        axios
-          .get("https://dev-desk-backend.herokuapp.com/tickets")
-          .then(res =>{
-             setTickets(res.data)
-             console.log(res.data)
-          })
-          .catch(err => console.log(err.response));
-      }, []);
+      axios.get('https://dev-desk-backend.herokuapp.com/tickets', tickets) // live url: https://dev-desk-backend.herokuapp.com/tickets
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
+    }, []);
     
       
     //Display loading message if no tickets
-    if (!tickets) {
+    if (tickets===0) {
       return <div>Loading ticket information...</div>;
     }
       

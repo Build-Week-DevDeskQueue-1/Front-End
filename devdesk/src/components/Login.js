@@ -31,9 +31,9 @@ const Login = () => {
       }
     
     //function to refresh page
-    // function refreshPage(){ 
-    //   window.location.reload(); 
-    // }
+    function refreshPage(){ 
+      window.location.reload(); 
+    }
 
     return (
         <form className="loginForm" onSubmit={logins}>
@@ -56,12 +56,12 @@ const Login = () => {
             </label> 
             </div>     
             <div className="buttons">
-              <button type='submit'>
+              <button type='submit' onClick={refreshPage}>
                 <Router>
                       <Link to="/ticket">Login</Link>
                 </Router>
               </button> 
-              <button>
+              <button onClick={refreshPage} >
               <Router>
                 <Link to="/register">Register</Link>
               </Router>

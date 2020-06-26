@@ -23,15 +23,12 @@ class Registration extends React.Component{
     };
 
     addUser = e => {
-        e.preventDefault();
-        
+        e.preventDefault();        
         axios
         .post(`https://dev-desk-backend.herokuapp.com/auth/register`, this.state.newUser)
         .then(res => {
             console.log(res.data);
-            //TODO: this will not be friends, but something else
-            //this.setState({friends:[...res.data, res.data.payload]});
-            this.setState({...res.data});
+            //this.setState({...res.data});
         })
         .catch(err => console.log(err));
 

@@ -64,26 +64,19 @@ const Ticket = props => {
     const submitTickets = e => {
         e.preventDefault();
         axios
-            .post("https://dev-desk-backend.herokuapp.com/tickets") //.get('http://localhost:5000/api/tickets')
+            .post("https://dev-desk-backend.herokuapp.com/tickets")
             .then(res => setTicket(res.data))
-            .catch(err => console.log(err.response));
-        
+            .catch(err => console.log(err.response));        
     }
-    // We may not need to define this here.
-    // assign ticket is going to be an axios.put request
-    // axios
-    //     .put("/tickets") //.get('http://localhost:5000/api/tickets')
-    //     .then(res => setTickets(res.data))
-    //     .catch(err => console.log(err.response));
-    
+        
     // close/reopen ticket is going to be an axios.put request
     //  attach to dropdown toggle with class="status"
     //  change status field
     const changeStatus = e => {
         e.preventDefault();
         axios
-            .put("https://dev-desk-backend.herokuapp.com/tickets/status") //.get('http://localhost:5000/api/tickets')
-            .then(res => setTicket(res.data)) //instead of setTickets, create new state element for status?
+            .put("https://dev-desk-backend.herokuapp.com/tickets/status")
+            .then(res => setTicket(res.data))
             .catch(err => console.log(err.response));
     }
 
@@ -136,13 +129,13 @@ const Ticket = props => {
                 {/* Dropdowns are reactstrap components*/}
                 {/* https://reactstrap.github.io/components/dropdowns/ */}
                 <DropdownButton id="dropdown1" title="Category">
-                    <Dropdown.Item as="button" onChange={handleChange}
+                    <Dropdown.Item as="button" onClick={handleChange}
                         value={props.category}>Low</Dropdown.Item>
-                    <Dropdown.Item as="button" onChange={handleChange}
+                    <Dropdown.Item as="button" onClick={handleChange}
                         value={props.category}>Medium</Dropdown.Item>
-                    <Dropdown.Item as="button" onChange={handleChange}
+                    <Dropdown.Item as="button" onClick={handleChange}
                         value={props.category}>High</Dropdown.Item>
-                    <Dropdown.Item as="button" onChange={handleChange}
+                    <Dropdown.Item as="button" onClick={handleChange}
                         value={props.category}>Critical</Dropdown.Item>
                 </DropdownButton>
                
@@ -151,20 +144,18 @@ const Ticket = props => {
                     Status
                 </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item as="button" onChange={handleChange}
-                        value={props.status}>Open</Dropdown.Item>
-                        <Dropdown.Item as="button" onChange={handleChange}
+                        <Dropdown.Item as="button" onClick={changeStatus}
                         value={props.status}>Reopen</Dropdown.Item>
-                        <Dropdown.Item as="button" onChange={handleChange}
+                        <Dropdown.Item as="button" onClick={changeStatus}
                         value={props.status}>Closed</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <button onClick={ refreshPage }>
+                <button>
                 <Router>
                     <Link to="/logout">Logout</Link>
                 </Router>
                 </button>
-                <button type='submit' onClick={ refreshPage }><Router>
+                <button type='submit'><Router>
                     <Link to="/thankyou">Submit Ticket</Link>
                 </Router></button>
                 </div>

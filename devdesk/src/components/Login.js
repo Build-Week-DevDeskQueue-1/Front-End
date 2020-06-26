@@ -21,13 +21,13 @@ const Login = () => {
     const logins = e => {
         e.preventDefault();
         axios
-          .post(`https://dev-desk-backend.herokuapp.com/auth/login`, credentials) ///api/login
+          .post(`https://dev-desk-backend.herokuapp.com/auth/login`, credentials)
           .then(res => {
             localStorage.setItem('token', res.data.payload);
             history.push('/ticket');
           })
           .catch(err => console.log(err));
-        setCredentials({ username: '', password: '' });
+        //setCredentials({ username: '', password: '' });
       }
     
     //function to refresh page
@@ -56,12 +56,12 @@ const Login = () => {
             </label> 
             </div>     
             <div className="buttons">
-              <button type='submit' onClick={ refreshPage }>
+              <button type='submit'>
                 <Router>
                       <Link to="/ticket">Login</Link>
                 </Router>
               </button> 
-              <button onClick={ refreshPage }>
+              <button>
               <Router>
                 <Link to="/register">Register</Link>
               </Router>

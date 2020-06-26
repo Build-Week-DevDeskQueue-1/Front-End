@@ -14,6 +14,8 @@ import ThankYou from "./components/ThankYou";
 //Context API
 import {TicketContext} from './contexts/TicketContext';
 
+axios.defaults.withCredentials = true;
+
 function App() {
 
   return (

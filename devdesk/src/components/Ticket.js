@@ -150,12 +150,12 @@ const Ticket = props => {
                         value={props.status}>Closed</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <button>
+                <button onClick={refreshPage}>
                 <Router>
                     <Link to="/logout">Logout</Link>
                 </Router>
                 </button>
-                <button type='submit'><Router>
+                <button type='submit' onClick={refreshPage}><Router>
                     <Link to="/thankyou">Submit Ticket</Link>
                 </Router></button>
                 </div>
